@@ -7,8 +7,8 @@ import java.util.Random;
  */
 public class Creature
 {
-   private int hp;
-   private int strength;
+   protected int hp;
+   protected int strength;
    Random rand = new Random();
    public Creature(){
        hp = 10;

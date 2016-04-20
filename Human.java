@@ -5,29 +5,27 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Human
+public class Human extends Creature
 {
     // instance variables - replace the example below with your own
-    private int x;
+    
 
     /**
      * Constructor for objects of class Human
      */
     public Human()
     {
-        // initialise instance variables
-        x = 0;
+        super();
+        hp = rand.nextInt(30)+1;
+        strength = rand.nextInt(18)+1;
+        while (hp < 5)
+        {
+            hp = rand.nextInt(30)+1;
+        }
+        while (strength < 5)
+        {
+            strength = rand.nextInt(18)+1;
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }
