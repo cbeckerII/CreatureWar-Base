@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /**
  * Write a description of class Creature here.
  * 
@@ -9,14 +9,15 @@ public class Creature
 {
    private int hp;
    private int strength;
-   
+   Random rand = new Random();
    public Creature(){
-       
+       hp = 10;
+       hp = 10;
    }
     
    public int damage(){
-       //TODO: change this
-       return 0;
+       int damage = rand.nextInt(strength)+1;
+       return damage;
     }
     
 }
