@@ -12,6 +12,7 @@ public class War
     ArrayList<Creature> Allies = new ArrayList<Creature>();
     ArrayList<Creature> Enemies = new ArrayList<Creature>();
     Random rand = new Random();
+    private int coin;
     private int armyMax = 0;
     
     
@@ -23,8 +24,11 @@ public class War
         // initialise instance variables
         makeAllies();
         makeEnemies();
+        
         Allies.trimToSize();
         Enemies.trimToSize();
+        
+        
     }
     
     public int setMaxArmy()
@@ -40,9 +44,17 @@ public class War
     public void makeAllies()
     {
         setMaxArmy();        
-        while (Allies.size() <= armyMax) 
-        {
-            Allies.add(new Human());
+        while (Allies.size() <= armyMax){ 
+            coin = rand.nextInt(2)+1;
+            if (coin ==(1))
+            {
+                Allies.add(new Elf());
+            }
+                
+            else if(coin ==(2))
+            {
+                Allies.add(new Human());
+            }
         }
     }
     

@@ -12,7 +12,7 @@ public class Creature
    Random rand = new Random();
    public Creature(){
        hp = 10;
-       hp = 10;
+       strength = 10;
    }
     
    public int damage(){
