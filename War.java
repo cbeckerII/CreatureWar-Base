@@ -13,6 +13,7 @@ public class War
     ArrayList<Creature> Enemies = new ArrayList<Creature>();
     Random rand = new Random();
     private int dmgholder;
+    private int percentage;
     private int coin;
     private int armyMax = 0;
     
@@ -36,21 +37,39 @@ public class War
         Creature Abyssal = Enemies.get(0);
         while (Allies.size() > 1 && Enemies.size() > 1)
         {
+            dmgholder = Champion.damage();
             if(Champion.getClass() == Elf.class)
             {
-                System.out.println("IM A ELF");
+                percentage = rand.nextInt(100)+1;
+                if (percentage <= 10)
+                {
+                    dmgholder = dmgholder * 2;
+                    System.out.println("There's magic in the air!");
+                }
             }
-            else if (Champion.getClass() == Human.class)
-            {
-                System.out.println("I AM A HUMAN");
-            }
-            dmgholder = Champion.damage();
             Abyssal.hp -= dmgholder;
-            System.out.println("The champion for the good has dealt " + dmgholder + " damage to the enemy!");
+            System.out.println("The" + Champion.getClass().toString().replace("class", "") + " for the good has dealt " + dmgholder + " damage to the enemy!");
             
+            if(Abyssal.getClass() == Balrog.class)
+            {
+                percentage = rand.nextInt(100)+1;
+                dmgholder = Abyssal.damage();
+                if(percentage <= 5)
+                {
+                    dmgholder += 50;
+                }
+                Champion.hp -= dmgholder;
+                System.out.println("The" + Abyssal.getClass().toString().replace("class", "") +" has dealt " + dmgholder + " to the champion!");            
+            }
+            
+            percentage = rand.nextInt(100)+1;
             dmgholder = Abyssal.damage();
+            if(percentage <= 5)
+            {
+                dmgholder += 50;
+            }
             Champion.hp -= dmgholder;
-            System.out.println("The enemy has dealt " + dmgholder + " to the champion!");
+            System.out.println("The" + Abyssal.getClass().toString().replace("class", "") + " has dealt " + dmgholder + " to the champion!");
             
             if (Champion.hp <= 0)
             {
